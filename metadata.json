@@ -1,0 +1,6 @@
+{
+  "name": "NAPS LASUSTECH - Official Chapter Portal",
+  "description": "Official website and digital student portal of the National Association of Physics Students (NAPS), Lagos State University of Science and Technology (LASUSTECH) Chapter. Empowering scientific discovery and academic excellence.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

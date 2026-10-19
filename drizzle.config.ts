@@ -1,15 +1,52 @@
-import { defineConfig } from "drizzle-kit";
-
-const connectionString = process.env.DATABASE_URL;
-if (!connectionString) {
-  throw new Error("DATABASE_URL is required to run drizzle commands");
-}
+import 'dotenv/config';
+import { defineConfig } from 'drizzle-kit';
 
 export default defineConfig({
-  schema: "./drizzle/schema.ts",
-  out: "./drizzle",
-  dialect: "mysql",
+  schema: './db/schema.ts',
+  out: './drizzle',
+  dialect: 'postgresql',
   dbCredentials: {
-    url: connectionString,
+    url: process.env.DATABASE_URL!,
   },
+  verbose: true,
+  strict: true,
 });
+
+// import { defineConfig } from 'drizzle-kit';
+// import * as dotenv from 'dotenv';
+// dotenv.config();
+
+// const sqlHost = process.env.SQL_HOST;
+// const sqlDbName = process.env.SQL_DB_NAME;
+// const user = process.env.SQL_ADMIN_USER;
+// const password = process.env.SQL_ADMIN_PASSWORD;
+
+// if (!sqlHost) {
+//   throw new Error("SQL_HOST must be set in environment variables.");
+// }
+// if (!sqlDbName) {
+//   throw new Error("SQL_DB_NAME must be set in environment variables.");
+// }
+// if (!user) {
+//   throw new Error("SQL_ADMIN_USER must be set in environment variables.");
+// }
+// if (!password) {
+//   throw new Error("SQL_ADMIN_PASSWORD must be set in environment variables.");
+// }
+
+// export default defineConfig({
+//   schema: './server/db/schema.ts',
+//   out: './drizzle',
+//   dialect: 'postgresql',
+//   dbCredentials: {
+//     host: sqlHost,
+//     user: user,
+//     password: password,
+//     database: sqlDbName,
+//     ssl: false,
+//   },
+//   verbose: true,
+//   strict: true,
+// });
+
+
